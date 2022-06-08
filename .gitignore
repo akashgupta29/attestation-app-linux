@@ -50,7 +50,6 @@ ipch/
 
 #csproj
 *.htm
-*.zip
 *.filters
 *.exe
 
