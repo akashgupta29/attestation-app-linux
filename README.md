@@ -41,4 +41,22 @@ $ sudo ./AttestationClient
 
 ![image](https://user-images.githubusercontent.com/32008026/170384716-d13876e2-4078-47bd-9994-5ca44318b4d4.png)
 
+## Steps to run sample client
+1. Download [sample-client.zip](https://github.com/akashgupta29/attestation-app-linux/blob/main/sample-client.zip) from the repo.
+2. Unzip the folder.
+3. Use the below commands to install `libcurl4-openssl-dev` and `libjsoncpp-dev` packages:
+    ```sh
+    $ sudo apt-get install libcurl4-openssl-dev
+    $ sudo apt-get install libjsoncpp-dev
+      ```
+4. Download the attestation package from the following location - https://packages.microsoft.com/repos/azurecore/pool/main/a/azguestattestation1/
+   
+   Use the below command to install the attestation package:
+    ```sh
+    $ sudo dpkg -i azguestattestation1_1.0.0_amd64.deb
+    ```
+5. To run the sample client, navigate inside the unzipped folder and run the below command:
+    ```sh
+    $ sudo ./AttestationClient
+    ```
 
