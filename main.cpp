@@ -32,7 +32,7 @@ public:
 };
 
 // Attestation URL + Guest attestation path + API version
-std::string attestation_url = "https://sharedeus.eus.test.attest.azure.net/attest/Tee/AzureGuest?api-version=2018-09-01-preview";
+std::string attestation_url = "https://sharedeus.eus.test.attest.azure.net/attest/AzureGuest?api-version=2020-10-01";
 
 int main() {
     try {
@@ -47,13 +47,13 @@ int main() {
             exit(1);
         }
 
-        // Get the MSI token by calling IMDS
-        std::string msi_token = GetMSI();
+        // parameters for Attest call
         attest::ClientParameters params = {};
-        params.authentication_token = (unsigned char*)(msi_token.c_str());
         params.attestation_endpoint_url = (unsigned char*)attestation_url.c_str();
         std::string client_payload_str = "{\"nonce\":\"1234\"}";
         params.client_payload = (unsigned char*)client_payload_str.c_str();
+        // structure version
+        params.version = CLIENT_PARAMS_VERSION;
         unsigned char* jwt = nullptr;
         attest::AttestationResult result;
 
